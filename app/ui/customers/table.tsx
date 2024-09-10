@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import {lusitana} from '../fonts'
 import Search from '../search'
-import {CustomersTableType, FormattedCustomersTable,} from '../../lib/definitions'
+import {FormattedCustomersTable,} from '../../lib/definitions'
 
 
 export default async function CustomersTable({customers,}: { customers: FormattedCustomersTable[] }) {
