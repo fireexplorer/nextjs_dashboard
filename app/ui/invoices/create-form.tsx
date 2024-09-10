@@ -2,29 +2,23 @@ import {CustomerField} from '../../lib/definitions'
 import Link from 'next/link'
 import {CheckIcon, ClockIcon, CurrencyDollarIcon, UserCircleIcon,} from '@heroicons/react/24/outline'
 import {Button} from '../button'
+import {createInvoice} from "../../lib/actions"
 
 
 export default function Form({customers}: { customers: CustomerField[] }) {
     return (
-        <form>
+        <form action={createInvoice}>
             <div className="rounded-md bg-gray-50 p-4 md:p-6">
                 {/* Customer Name */}
                 <div className="mb-4">
-                    <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-                        Choose customer
-                    </label>
+                    <label htmlFor="customer" className="mb-2 block text-sm font-medium">选择客户</label>
                     <div className="relative">
                         <select id="customer" name="customerId"
                                 className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-                                defaultValue=""
-                        >
-                            <option value="" disabled>
-                                Select a customer
-                            </option>
+                                defaultValue="">
+                            <option value="" disabled>选择一个客户</option>
                             {customers.map((customer) => (
-                                <option key={customer.id} value={customer.id}>
-                                    {customer.name}
-                                </option>
+                                <option key={customer.id} value={customer.id}>{customer.name}</option>
                             ))}
                         </select>
                         <UserCircleIcon
@@ -34,9 +28,7 @@ export default function Form({customers}: { customers: CustomerField[] }) {
 
                 {/* Invoice Amount */}
                 <div className="mb-4">
-                    <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-                        Choose an amount
-                    </label>
+                    <label htmlFor="amount" className="mb-2 block text-sm font-medium">选择金额</label>
                     <div className="relative mt-2 rounded-md">
                         <div className="relative">
                             <input id="amount" name="amount" type="number" step="0.01" placeholder="Enter USD amount"
@@ -50,9 +42,7 @@ export default function Form({customers}: { customers: CustomerField[] }) {
 
                 {/* Invoice Status */}
                 <fieldset>
-                    <legend className="mb-2 block text-sm font-medium">
-                        Set the invoice status
-                    </legend>
+                    <legend className="mb-2 block text-sm font-medium">设置发票状态</legend>
                     <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
                         <div className="flex gap-4">
                             <div className="flex items-center">
@@ -62,7 +52,7 @@ export default function Form({customers}: { customers: CustomerField[] }) {
                                 <label htmlFor="pending"
                                        className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                                 >
-                                    Pending <ClockIcon className="h-4 w-4"/>
+                                    支付中 <ClockIcon className="h-4 w-4"/>
                                 </label>
                             </div>
                             <div className="flex items-center">
@@ -72,7 +62,7 @@ export default function Form({customers}: { customers: CustomerField[] }) {
                                 <label htmlFor="paid"
                                        className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                                 >
-                                    Paid <CheckIcon className="h-4 w-4"/>
+                                    已支付 <CheckIcon className="h-4 w-4"/>
                                 </label>
                             </div>
                         </div>
@@ -82,8 +72,8 @@ export default function Form({customers}: { customers: CustomerField[] }) {
             <div className="mt-6 flex justify-end gap-4">
                 <Link href="/dashboard/invoices"
                       className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-                >Cancel</Link>
-                <Button type="submit">Create Invoice</Button>
+                >取消</Link>
+                <Button type="submit">创建发票</Button>
             </div>
         </form>
     )
