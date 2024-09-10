@@ -2,11 +2,12 @@
   "name": "03_learn_from_official",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "seed": "node -r dotenv/config scripts/seed.js",
+    "seed": "node -r dotenv/config ./scripts/seed.js",
     "lint": "next lint"
   },
   "dependencies": {
