@@ -15,11 +15,11 @@ export default function Pagination({totalPages}: { totalPages: number }) {
         params.set('page', pageNumber.toString())
         return `${pathname}?${params.toString()}`
     }
-    // NOTE: Uncomment this code in Chapter 11
+    // 注意: 在第 11 章中取消注释此代码
     const allPages = generatePagination(currentPage, totalPages)
     return (
         <>
-            {/*  NOTE: Uncomment this code in Chapter 11 */}
+            {/*  注意：在第 11 章中取消注释此代码 */}
             <div className="inline-flex">
                 <PaginationArrow direction="left" href={createPageURL(currentPage - 1)} isDisabled={currentPage <= 1}/>
                 <div className="flex -space-x-px">
@@ -30,12 +30,11 @@ export default function Pagination({totalPages}: { totalPages: number }) {
                         if (allPages.length === 1) position = 'single'
                         if (page === '...') position = 'middle'
                         return (
-                            <PaginationNumber key={page} href={createPageURL(page)} page={page} position={position}
-                                              isActive={currentPage === page}/>
+                            <PaginationNumber key={page} href={createPageURL(page)} page={page}
+                                              position={position} isActive={currentPage === page}/>
                         )
                     })}
                 </div>
-
                 <PaginationArrow direction="right" href={createPageURL(currentPage + 1)}
                                  isDisabled={currentPage >= totalPages}/>
             </div>
@@ -78,7 +77,8 @@ function PaginationArrow({href, direction, isDisabled,}: {
             'ml-2 md:ml-4': direction === 'right',
         },
     )
-    const icon = direction === 'left' ? (<ArrowLeftIcon className="w-4"/>) : (<ArrowRightIcon className="w-4"/>)
+    const icon = direction === 'left' ? (
+        <ArrowLeftIcon className="w-4"/>) : (<ArrowRightIcon className="w-4"/>)
     return isDisabled ? (<div className={className}>{icon}</div>) : (
         <Link className={className} href={href}>{icon}</Link>)
 }

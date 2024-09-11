@@ -8,9 +8,9 @@ import clsx from "clsx"
 // 要在侧边导航中显示的链接的映射。
 // 根据应用程序的大小，这将存储在数据库中。
 const links = [
-    {name: 'Home', href: '/dashboard', icon: HomeIcon},
-    {name: 'Invoices', href: '/dashboard/invoices', icon: DocumentDuplicateIcon,},
-    {name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon},
+    {name: '主页', href: '/dashboard', icon: HomeIcon},
+    {name: '发票', href: '/dashboard/invoices', icon: DocumentDuplicateIcon,},
+    {name: '客户', href: '/dashboard/customers', icon: UserGroupIcon},
 ]
 
 export default function NavLinks() {

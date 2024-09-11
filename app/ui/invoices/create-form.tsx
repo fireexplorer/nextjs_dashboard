@@ -28,10 +28,10 @@ export default function Form({customers}: { customers: CustomerField[] }) {
 
                 {/* Invoice Amount */}
                 <div className="mb-4">
-                    <label htmlFor="amount" className="mb-2 block text-sm font-medium">选择金额</label>
+                    <label htmlFor="amount" className="mb-2 block text-sm font-medium">金额</label>
                     <div className="relative mt-2 rounded-md">
                         <div className="relative">
-                            <input id="amount" name="amount" type="number" step="0.01" placeholder="Enter USD amount"
+                            <input id="amount" name="amount" type="number" step="0.01" placeholder="输入美元金额"
                                    className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                             />
                             <CurrencyDollarIcon
@@ -70,7 +70,7 @@ export default function Form({customers}: { customers: CustomerField[] }) {
                 </fieldset>
             </div>
             <div className="mt-6 flex justify-end gap-4">
-                <Link href="/dashboard/invoices"
+                <Link href={"/dashboard/invoices"}
                       className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
                 >取消</Link>
                 <Button type="submit">创建发票</Button>

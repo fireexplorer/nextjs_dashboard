@@ -20,10 +20,10 @@ export default async function CardWrapper() {
     return (
         <>
             {/* NOTE: Uncomment this code in Chapter 9 */}
-            <Card title="Collected" value={totalPaidInvoices} type="collected"/>
-            <Card title="Pending" value={totalPendingInvoices} type="pending"/>
-            <Card title="Total Invoices" value={numberOfInvoices} type="invoices"/>
-            <Card title="Total Customers" value={numberOfCustomers} type="customers"/>
+            <Card title="合计金额" value={totalPaidInvoices} type="collected"/>
+            <Card title="支付中" value={totalPendingInvoices} type="pending"/>
+            <Card title="所有发票" value={numberOfInvoices} type="invoices"/>
+            <Card title="所有客户" value={numberOfCustomers} type="customers"/>
         </>
     )
 }

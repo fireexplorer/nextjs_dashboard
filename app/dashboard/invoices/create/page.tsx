@@ -8,8 +8,8 @@ export default async function Page() {
     return (
         <main>
             <Breadcrumbs breadcrumbs={[
-                {label: 'Invoices', href: '/dashboard/invoices'},
-                {label: 'Create Invoice', href: '/dashboard/invoices/create', active: true,},
+                {label: '发票', href: '/dashboard/invoices'},
+                {label: '新增发票', href: '/dashboard/invoices/create', active: true,},
             ]}/>
             <Form customers={customers}/>
         </main>
